@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: orange;
+            display: flex;
+            justify-content: center;
+        }
+        #first_box{
+            padding-top: 20px;
+            border: white;
+            border-style: dotted dashed solid double;
+            width: 800px;
+            text-align: center;
+            background-image: linear-gradient(to bottom, orange, rgba(211, 211, 211, 0.555));
+        }
+        #Gen_btn{
+            transition: 4ms;
+            padding: 10px 15px;
+            font-size: 15px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            background-color: white;
+        }
+        #Gen_btn:hover {
+            background-color: orange;
+            color: white;
+            border: 1px solid;
+            border-color: black;
+        }
+        label {
+            font-size: 20px;
+            padding-right: 10px;
+        }
+        input {
+            height: 20px;
+            font-size: 20px;
+            padding: 3px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="first_box">
+<div id="second_box">
+    <form onsubmit="do_table(); return false">
+    
+    <h1>Multiplication Table Program</h1>
+    <label for="Number input">Enter Number</label> <input type="number" id="num_txt">
+    <br>
+    <label for="Range input">Enter Range</label> <input type="number" id="range_txt">
+    <br>
+    <label for="Number input">Enter Quantity</label> <input type="number" id="quant_txt">
+    <br>
+    <br>
+    <button type="submit" id="Gen_btn">Generate</button>
+     
+    </form>
+    <h3 id="text"></h3>
+</div>
+</div>
+    <script>
+        function do_table() {
+
+            let num = +document.querySelector("#num_txt").value;
+            let range = +document.querySelector("#range_txt").value;
+            let quant = +document.querySelector("#quant_txt").value;
+            let tbl = " ";
+
+            for (let i = 0; i < quant; i++) {
+
+                for (let j = 0; j < range; j++) {
+
+                    tbl += `${num} x ${j+1} = ${num * (j+1)}<br>`;
+                }
+                tbl += "<br>";
+                
+            }
+            document.querySelector("#text").innerHTML = tbl;
+        }
+    </script>
+</body>
+</html>
